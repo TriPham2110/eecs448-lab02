@@ -6,18 +6,13 @@
 */
 
 template <typename T>
-LinkedList<T>::LinkedList() : m_front(nullptr), m_size(0)
-{
-
-}
+LinkedList<T>::LinkedList() : m_front(nullptr), m_size(0){}
 
 template <typename T>
 LinkedList<T>::~LinkedList()
 {
 	while(!isEmpty())
-	{
 		removeFront();
-	}
 }
 
 template <typename T>
@@ -29,7 +24,8 @@ bool LinkedList<T>::isEmpty() const
 template <typename T>
 int LinkedList<T>::size() const
 {
-	if(!isEmpty()) return m_size;
+	if(!isEmpty())
+		return m_size;
 }
 
 template <typename T>
@@ -45,7 +41,6 @@ bool LinkedList<T>::search(T value) const
 		}
 		temp = temp->getNext();
 	}
-
 	return(isFound);
 }
 
@@ -55,8 +50,7 @@ std::vector<T> LinkedList<T>::toVector() const
 	std::vector<T> vec;
 	Node<T>* temp = m_front;
 
-	while( temp != nullptr )
-	{
+	while( temp != nullptr ) {
 		vec.push_back(temp->getValue());
 		temp = temp->getNext();
 	}
@@ -71,17 +65,12 @@ void LinkedList<T>::addBack(T value)
 	Node<T>* temp = nullptr;
 
 	if(isEmpty())
-	{
 		m_front = new Node<T>(value);
-	}
-	else
-	{
+	else {
 		temp = m_front;
-		while(temp->getNext() != nullptr)
-		{
+		while(temp->getNext() != nullptr){
 			temp = temp->getNext();
 		}
-
 		temp->setNext( new Node<T>(value) );
 	}
 
@@ -125,8 +114,7 @@ bool LinkedList<T>::removeFront()
 	Node<T>* temp = nullptr;
 	bool isRemoved = false;
 
-	if(!isEmpty())
-	{
+	if(!isEmpty()){
 		temp = m_front;
 		m_front = temp->getNext();
 		delete temp;
