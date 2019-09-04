@@ -1,6 +1,6 @@
 /**
-*	@Vo Thien Tri Pham
-*	@09/04/2019
+*	@Student name: Vo Thien Tri Pham
+*	@Date: 09/04/2019
 *	@file LinkedList.hpp
 *	@brief Implementation file for templated LinkedList class
 */
@@ -24,8 +24,10 @@ bool LinkedList<T>::isEmpty() const
 template <typename T>
 int LinkedList<T>::size() const
 {
-	if(!isEmpty())
+	if(!isEmpty()) {
 		return m_size;
+	}
+	return 0;
 }
 
 template <typename T>
@@ -56,7 +58,6 @@ std::vector<T> LinkedList<T>::toVector() const
 	}
 
 	return(vec);
-
 }
 
 template <typename T>
@@ -68,7 +69,7 @@ void LinkedList<T>::addBack(T value)
 		m_front = new Node<T>(value);
 	else {
 		temp = m_front;
-		while(temp->getNext() != nullptr){
+		while(temp->getNext() != nullptr) {
 			temp = temp->getNext();
 		}
 		temp->setNext( new Node<T>(value) );
@@ -104,7 +105,6 @@ bool LinkedList<T>::removeBack()
 		secondintoLast -> setNext(nullptr);
 		isRemoved = true;
 	}
-
 	return(isRemoved);
 }
 
